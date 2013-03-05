@@ -1,0 +1,164 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 10px;
+  line-height: 100%;
+}
+
+aside {
+  background: #d6dde5;
+  border-right: 1px solid #a3a3a3;
+  overflow-x: hidden;
+  width: 199px;
+  height: 100%;
+  -webkit-user-select: none;
+}
+
+aside:focus {
+  outline: none;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside li {
+  font-size: 1.2em;
+  line-height: 2em;
+  display: block;
+  cursor: normal;
+  margin-top: 1px;
+  border-top: 1px solid transparent;
+}
+
+aside a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 1em;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+aside li.selected {
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.33) 0 1px 0;
+  font-weight: bold;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#5c93d5), to(#1553aa));
+  border-top: 1px solid #4480C8;
+}
+
+#main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#main > div {
+  padding-left: 1.6em;
+}
+
+h1 {
+  font-size: 1.6em;
+  line-height: 1.6em;
+  color: #6e7480;
+  font-weight: normal;
+  margin: 0.8em 0 0.5em 0;
+}
+
+label, p, li {
+  font-size: 1.3em;
+  line-height: 1.3em;
+}
+
+ul {
+  padding: 0.4em 0 1.4em 2.4em;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  -webkit-background-size: 1px 50px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
+  background-position: 0 0;
+}
+
+table.headers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 23px;
+  -webkit-user-select: none;
+}
+
+.scrollable-data {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+table .timestamp {
+  min-width: 84px;
+  width: 84px;
+  max-width: 84px;
+}
+
+table .object,
+table .event,
+table .element,
+table .type,
+table .method {
+  min-width: 120px;
+  width: 120px;
+  max-width: 120px;
+}
+
+th {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ECECEC), to(#D9D9D9));
+  border-right: 1px solid #b3b3b3;
+  border-bottom: 1px solid #a3a3a3;
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 2em;
+  padding: 0 5px;
+  text-align: left;
+}
+
+td {
+  border-right: 1px solid #d2d2d2;
+  line-height: 25px;
+  padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tr:last-child td {
+  border-bottom: 1px solid #d2d2d2;
+}
+
+td.object,
+td.event,
+td.element,
+td.type,
+td.method {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+

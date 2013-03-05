@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Backbone Developer Tools",
+  "version": "0.1",
+  "description": "Helps in debugging Backbone-based web applications",
+
+  "icons": {
+    "128": "img/app_icon.png"
+  },
+
+  "devtools_page": "html/devtools.html",
+  "background": {"scripts": ["js/background.js"]},
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/inject/content_script.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "web_accessible_resources": [
+    "js/inject/attach.js",
+    "js/inject/backbone.debug.js",
+    "js/inject/logger.js"
+  ],
+
+  "minimum_chrome_version": "20.0.1132.57"
+}
