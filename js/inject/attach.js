@@ -22,7 +22,18 @@
 
   var inject = function() {
     if (!window.Backbone) {
-      console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
+      if (require) {
+        require(['backbone'], function(backbone){
+          if (!backbone) {
+            console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
+            return;
+          }
+          inject();
+        });
+      }
+      else {
+        console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
+      }
       return;
     }
 
