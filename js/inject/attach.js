@@ -20,9 +20,22 @@
     if (callback) callback();
   };
 
+  var timer;
+
   var inject = function() {
     if (!window.Backbone) {
-      console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
+
+      // Instead of logging an error immediately, we do the following:
+      // (1) Add a listener on `DOMNodeInserted` (which is triggered by require.js)
+      // (2) Set a timer for 500ms to log the error
+      // Then, an each `DOMNodeInserted` event, we check for window.Backbone.
+      // If found, we clear the error log timer, remove the `DOMNodeInserted`
+      // listener, and inject backbone.debug.js.
+      document.addEventListener('DOMNodeInserted', tryInject);
+      timer = setTimeout(function () {
+        document.removeEventListener('DOMNodeInserted', tryInject);
+        console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
+      }, 500);
       return;
     }
 
@@ -31,6 +44,14 @@
         console.log('[Backbone Dev Tools] Injected Backbone.Debug');
       });
     });
+  };
+
+  var tryInject = function () {
+    if (window.Backbone) {
+      clearTimeout(timer);
+      document.removeEventListener('DOMNodeInserted', tryInject);
+      inject();
+    }
   };
 
   if (window.sessionStorage['_backbone_debug_injection'] === 'enabled') {
