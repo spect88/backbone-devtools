@@ -6,7 +6,7 @@
 
   Backbone = window.Backbone;
 
-  $ = Backbone.$ || window.$;
+  $ = Backbone.$ || window.$ || window.jQuery;
 
   $.fn.backbone = function(option) {
     var elem;
