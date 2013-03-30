@@ -35,9 +35,11 @@ Features
 Known Limitations
 -----------------
 
-Backbone Developer Tools require *window.Backbone* to be available on DOMContentLoaded (<strong>no require.js support</strong>, sorry).
+By default, Backbone Developer Tools require *window.Backbone* to be available on DOMContentLoaded. We have a fallback method for asynchronously loaded Backbone that seems to work pretty well, too.
 
-You could try modifying *js/inject/logger.js* and *js/inject/backbone.debug.js* and including them by yourself.
+If neither the default nor the fallback succeed in injecting Backbone Developer Tools, you can modify *js/inject/attach.js* to meet your specific requirements.
+
+You could also try modifying *js/inject/logger.js* and *js/inject/backbone.debug.js* and including them by yourself.
 Note that unless you alter the extension itself, you'll need to expose the logger at *window.Backbone.debug.logger*.
 
 
