@@ -12,15 +12,4 @@
   };
   (document.head||document.documentElement).appendChild(s);
 
-  // pass the message from logger.js to background.js
-  // which will notify the panel that new logs are available
-  document.addEventListener('bdt:message', function(e) {
-    var message = e.detail;
-    try {
-      chrome.extension.sendMessage(message);
-    } catch(e) {
-      // fail silently
-    }
-  });
-
 })();

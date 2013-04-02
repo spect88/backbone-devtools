@@ -46,21 +46,11 @@
             ? prettyElementName(details)
             : details
       });
-      this.notify(type);
     },
 
     getData: function(type, fromIndex) {
       if (!fromIndex) return this.data[type];
       return this.data[type].slice(fromIndex);
-    },
-
-    notify: function(type) {
-      document.dispatchEvent(new CustomEvent('bdt:message', {
-        detail: {
-          msg: 'new_logs',
-          type: type
-        }
-      }));
     }
 
   };
