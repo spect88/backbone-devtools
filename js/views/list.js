@@ -16,7 +16,7 @@
       this.collection.fetch();
       this.listenTo(this.collection, 'reset', this.render);
       this.listenTo(this.collection, 'add', this.addItem);
-      this.collection.waitForNotifications();
+      this.collection.startPolling();
     },
 
     render: function() {
@@ -46,7 +46,7 @@
 
     remove: function() {
       Backbone.View.prototype.remove.apply(this, arguments);
-      this.collection.stopWaiting();
+      this.collection.stopPolling();
       this.collection = null;
       return this;
     },

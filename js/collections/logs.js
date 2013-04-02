@@ -6,8 +6,6 @@
     
     initialize: function(type) {
       this.type = type;
-
-      this.notificationReceived = _.bind(this.notificationReceived, this);
     },
 
     sync: function(method, collection, options) {
@@ -42,19 +40,15 @@
       return this.sync('read', this, options);
     },
 
-    waitForNotifications: function() {
-      BDT.port.onMessage.addListener(this.notificationReceived);
+    startPolling: function() {
+      var this_ = this;
+      this.polling = window.setInterval(function() {
+        this_.fetchNew();
+      }, 200);
     },
 
-    stopWaiting: function() {
-      BDT.port.onMessage.removeListener(this.notificationReceived);
-    },
-
-    notificationReceived: function(message) {
-      if ((message['msg'] !== 'new_logs') || (message['type'] !== this.type)) {
-        return;
-      }
-      this.fetchNew();
+    stopPolling: function() {
+      this.polling = window.clearInterval(this.polling);
     }
 
   });
