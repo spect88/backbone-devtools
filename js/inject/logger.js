@@ -20,7 +20,7 @@
   };
 
   var prettyElementName = function(elem) {
-    if (!elem) {
+    if (!elem || !elem.tagName) {
       console.warn('[BDT Warning] Incorrect view.el value');
       return elem + '';
     }
