@@ -162,3 +162,8 @@ td.method {
   background-color: rgba(0, 0, 0, 0.07);
 }
 
+#timeout_number {
+  width:60px;
+  margin-right: 10px;
+  margin-left: 4px;
+}
