@@ -23,8 +23,9 @@
   var timer;
 
   var inject = function() {
+    var timeout;
     if (!window.Backbone) {
-
+      timeout = parseInt(window.sessionStorage['_backbone_debug_injection_timeout'], 10) || 2;
       // Instead of logging an error immediately, we do the following:
       // (1) Add a listener on `DOMNodeInserted` (which is triggered by require.js)
       // (2) Set a timer for 500ms to log the error
@@ -35,7 +36,7 @@
       timer = setTimeout(function () {
         document.removeEventListener('DOMNodeInserted', tryInject);
         console.error('[Backbone Dev Tools] Couldn\'t find Backbone');
-      }, 500);
+      }, timeout);
       return;
     }
 
