@@ -17,7 +17,9 @@
       BDT.page.eval('isInjectionEnabled', [], function(enabled) {
         $('[name="inject"]').prop('checked', enabled);
         BDT.page.eval('getTimeout', [], function(ms){
-          $('[name="timeout"]').val(ms/1000);
+          if (ms !== undefined) {
+            $('[name="timeout"]').val(ms/1000);
+          }
         })
       });
       return this;
