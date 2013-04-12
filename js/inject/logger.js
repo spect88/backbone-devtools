@@ -24,7 +24,7 @@
       console.warn('[BDT Warning] Incorrect view.el value');
       return elem + '';
     }
-    return elem.tagName.toLowerCase() + (elem.id && ("#" + elem.id));
+    return elem.tagName.toLowerCase() + ((elem.id && ("#" + elem.id)) || (elem.className && ([''].concat(elem.className.match(/\S+/g) || []).join('.'))));
   };
 
   var BDTLogger = {
