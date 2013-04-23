@@ -38,7 +38,9 @@
     },
 
     updateTimeout: function (evt) {
-      BDT.page.eval('updateTimeout', [this.$(evt.currentTarget).val()], function(){});
+      var seconds = parseFloat(this.$(evt.currentTarget).val());
+      var ms = Math.round(seconds * 1000);
+      BDT.page.eval('updateTimeout', [ms]);
     }
 
   });

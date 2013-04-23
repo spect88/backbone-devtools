@@ -25,7 +25,7 @@
   var inject = function() {
     var timeout;
     if (!window.Backbone) {
-      timeout = parseInt(window.sessionStorage['_backbone_debug_injection_timeout'], 10) || 2;
+      timeout = parseInt(window.sessionStorage['_backbone_debug_injection_timeout'], 10) || 500;
       // Instead of logging an error immediately, we do the following:
       // (1) Add a listener on `DOMNodeInserted` (which is triggered by require.js)
       // (2) Set a timer for 500ms to log the error

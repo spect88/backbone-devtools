@@ -87,7 +87,7 @@
     },
 
     updateTimeout: function(ms) {
-      window.sessionStorage['_backbone_debug_injection_timeout'] = String(parseInt(ms, 10) * 1000);
+      window.sessionStorage['_backbone_debug_injection_timeout'] = String(ms);
     },
 
     getTimeout: function() {
