@@ -11,6 +11,10 @@
     headers: null,
     collection: null,
 
+    toolbar: {
+      'clear': 'clearLogs'
+    },
+
     setCollection: function(collection) {
       this.collection = collection;
       this.collection.fetch();
@@ -74,6 +78,10 @@
 
       div.scrollTop(bottomScrollTop);
       return this;
+    },
+
+    clearLogs: function(evt) {
+      this.collection.clear();
     }
   });
 

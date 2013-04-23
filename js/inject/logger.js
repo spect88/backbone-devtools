@@ -51,6 +51,10 @@
     getData: function(type, fromIndex) {
       if (!fromIndex) return this.data[type];
       return this.data[type].slice(fromIndex);
+    },
+
+    clearData: function(type) {
+      this.data[type] = [];
     }
 
   };

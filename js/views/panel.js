@@ -8,8 +8,13 @@
       this.sidebar = new BDT.views.Sidebar({
         el: this.$('aside')
       });
+      this.toolbar = new BDT.views.Toolbar({
+        el: this.$('#toolbar'),
+        panel: this
+      });
       this.listenTo(this.sidebar, 'select', this.displayView);
       this.sidebar.render();
+      this.toolbar.render();
     },
 
     viewMap: {
@@ -26,6 +31,8 @@
       this.currentView = new this.viewMap[href]();
       var element = this.currentView.render().$el;
       this.$('#main').append(element);
+
+      this.trigger('viewChange', this.currentView);
     }
 
   });

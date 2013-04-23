@@ -9,13 +9,18 @@
     },
 
     sync: function(method, collection, options) {
-      if (method !== 'read')
-        throw new Error("Illegal sync method for a read-only collection");
+      var operation;
+
+      switch (method) {
+        case 'read': operation = 'getData'; break;
+        case 'delete': operation = 'clearData'; break;
+        default: throw new Error("Illegal sync method");
+      }
 
       var deferred = new $.Deferred();
 
       BDT.page.eval(
-        'getData',
+        operation,
         [collection.type, options.incremental ? collection.size() : 0],
         function(resp) {
           if (options.success) options.success(collection, resp, options);
@@ -49,6 +54,19 @@
 
     stopPolling: function() {
       this.polling = window.clearInterval(this.polling);
+    },
+
+    clear: function() {
+      this.stopPolling();
+
+      options = {
+        success: function(collection, resp, options) {
+          collection.reset();
+          collection.startPolling();
+        }
+      };
+
+      return this.sync('delete', this, options);
     }
 
   });

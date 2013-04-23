@@ -24,7 +24,7 @@ aside:focus {
 aside ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 23px 0;
 }
 
 aside li {
@@ -166,4 +166,41 @@ td.method {
   width:60px;
   margin-right: 10px;
   margin-left: 4px;
+}
+
+#toolbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 199px;
+  height: 22px;
+  border-top: 1px solid #cacaca;
+  background-image: -webkit-linear-gradient(rgb(243,243,243), rgb(235,235,235));
+}
+
+#toolbar button {
+  display: inline-block;
+  width: 28px;
+  height: 22px;
+  background-color: transparent;
+  background-position: center;
+  border-top: none;
+  border-left: 1px solid #cacaca;
+  border-right: 1px solid #cacaca;
+  border-bottom: none;
+  border-radius: 0;
+  padding: 0;
+  margin-left: -1px;
+  margin-right: 0;
+}
+
+#toolbar button:active {
+  border-left: 1px solid #787878;
+  border-right: 1px solid #787878;
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#toolbar button.clear {
+  background-image: url(../img/clear_icon.png);
 }

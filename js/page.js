@@ -74,6 +74,10 @@
       return Backbone.debug.logger.getData(type, fromIndex);
     },
 
+    clearData: function(type) {
+      window.Backbone.debug.logger.clearData(type);
+    },
+
     enableInjection: function() {
       window.sessionStorage['_backbone_debug_injection'] = 'enabled';
     },
