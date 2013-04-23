@@ -2,6 +2,7 @@
 
 <form>
   <input type="checkbox" name="inject" id="inject_checkbox" /><label for="inject_checkbox">Inject Backbone.Debug (changing this will cause a page reload)</label>
+  <input type="text" name="timeout" id="timeout_number" value="2000"/><label for="timeout_number">Time to wait before injecting (for AMD based projects)</label>
 </form>
 
 <p>App requirement for BDT to work:</p>
@@ -19,3 +20,4 @@
 <h1>Troubleshooting</h1>
 <p>If injecting doesn&apos;t work for some reason (eg. your project uses AMD), one thing you can try is modifying Backbone.Debug and the custom logger. Just include them in your project, making sure that the logger is reachable at window.Backbone.debug.logger</p>
 <p>Report any issues on <a href="http://github.com/spect88/backbone-devtools" target="_blank">GitHub</a> (pull requests are welcome as well).</p>
+<p>You can also try increasing to timeout for retrying injection - i.e., if your page takes 4 seconds to load, try a timeout of 5 (or the time it takes until Backbone.js is loaded</p>

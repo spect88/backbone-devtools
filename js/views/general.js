@@ -8,13 +8,19 @@
     template: BDT.templates['general'],
 
     events: {
-      'change [name="inject"]': 'toggleInjection'
+      'change [name="inject"]': 'toggleInjection',
+      'change [name="timeout"]': 'updateTimeout'
     },
 
     render: function() {
       this.$el.empty().append(this.template());
       BDT.page.eval('isInjectionEnabled', [], function(enabled) {
         $('[name="inject"]').prop('checked', enabled);
+        BDT.page.eval('getTimeout', [], function(ms){
+          if (ms !== undefined) {
+            $('[name="timeout"]').val(ms/1000);
+          }
+        })
       });
       return this;
     },
@@ -29,6 +35,10 @@
           chrome.devtools.inspectedWindow.reload();
         }
       );
+    },
+
+    updateTimeout: function (evt) {
+      BDT.page.eval('updateTimeout', [this.$(evt.currentTarget).val()], function(){});
     }
 
   });

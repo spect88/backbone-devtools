@@ -84,6 +84,14 @@
 
     isInjectionEnabled: function() {
       return window.sessionStorage['_backbone_debug_injection'] === 'enabled';
+    },
+
+    updateTimeout: function(ms) {
+      window.sessionStorage['_backbone_debug_injection_timeout'] = String(parseInt(ms, 10) * 1000);
+    },
+
+    getTimeout: function() {
+      return window.sessionStorage['_backbone_debug_injection_timeout'];
     }
 
   };
