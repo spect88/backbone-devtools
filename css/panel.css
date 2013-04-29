@@ -59,7 +59,7 @@ aside li.selected {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 22px;
   left: 200px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -89,9 +89,6 @@ ul {
 table {
   width: 100%;
   border-spacing: 0;
-  -webkit-background-size: 1px 50px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
-  background-position: 0 0;
 }
 
 table.headers {
@@ -154,6 +151,13 @@ tr:last-child td {
   border-bottom: 1px solid #d2d2d2;
 }
 
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0);
+}
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 td.object,
 td.event,
 td.element,
@@ -170,9 +174,10 @@ td.method {
 
 #toolbar {
   position: absolute;
-  left: 0;
+  left: 200px;
+  right: 0px;
   bottom: 0;
-  width: 199px;
+  z-index: 10;
   height: 22px;
   border-top: 1px solid #cacaca;
   background-image: -webkit-linear-gradient(rgb(243,243,243), rgb(235,235,235));
@@ -192,6 +197,7 @@ td.method {
   padding: 0;
   margin-left: -1px;
   margin-right: 0;
+  cursor: pointer;
 }
 
 #toolbar button:active {
