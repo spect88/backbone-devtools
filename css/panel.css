@@ -32,7 +32,6 @@ aside li {
   line-height: 2em;
   display: block;
   cursor: normal;
-  margin-top: 1px;
   border-top: 1px solid transparent;
 }
 
@@ -59,7 +58,7 @@ aside li.selected {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 200px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -89,9 +88,6 @@ ul {
 table {
   width: 100%;
   border-spacing: 0;
-  -webkit-background-size: 1px 50px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
-  background-position: 0 0;
 }
 
 table.headers {
@@ -115,9 +111,7 @@ table.headers {
 }
 
 table .timestamp {
-  min-width: 84px;
   width: 84px;
-  max-width: 84px;
 }
 
 table .object,
@@ -125,9 +119,7 @@ table .event,
 table .element,
 table .type,
 table .method {
-  min-width: 120px;
-  width: 120px;
-  max-width: 120px;
+  width: 200px;
 }
 
 th {
@@ -154,6 +146,13 @@ tr:last-child td {
   border-bottom: 1px solid #d2d2d2;
 }
 
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0);
+}
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 td.object,
 td.event,
 td.element,
@@ -170,8 +169,8 @@ td.method {
 
 #toolbar {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 0px;
+  bottom: 0px;
   width: 199px;
   height: 22px;
   border-top: 1px solid #cacaca;
@@ -192,6 +191,7 @@ td.method {
   padding: 0;
   margin-left: -1px;
   margin-right: 0;
+  cursor: pointer;
 }
 
 #toolbar button:active {
