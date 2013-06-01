@@ -32,7 +32,6 @@ aside li {
   line-height: 2em;
   display: block;
   cursor: normal;
-  margin-top: 1px;
   border-top: 1px solid transparent;
 }
 
@@ -59,7 +58,7 @@ aside li.selected {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 22px;
+  bottom: 0px;
   left: 200px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -112,9 +111,7 @@ table.headers {
 }
 
 table .timestamp {
-  min-width: 84px;
   width: 84px;
-  max-width: 84px;
 }
 
 table .object,
@@ -122,9 +119,7 @@ table .event,
 table .element,
 table .type,
 table .method {
-  min-width: 120px;
-  width: 120px;
-  max-width: 120px;
+  width: 200px;
 }
 
 th {
@@ -174,10 +169,9 @@ td.method {
 
 #toolbar {
   position: absolute;
-  left: 200px;
-  right: 0px;
-  bottom: 0;
-  z-index: 10;
+  left: 0px;
+  bottom: 0px;
+  width: 199px;
   height: 22px;
   border-top: 1px solid #cacaca;
   background-image: -webkit-linear-gradient(rgb(243,243,243), rgb(235,235,235));
