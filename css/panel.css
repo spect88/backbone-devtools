@@ -89,9 +89,13 @@ ul {
 table {
   width: 100%;
   border-spacing: 0;
-  -webkit-background-size: 1px 50px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
-  background-position: 0 0;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0);
+}
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 table.headers {
@@ -125,9 +129,9 @@ table .event,
 table .element,
 table .type,
 table .method {
-  min-width: 120px;
-  width: 120px;
-  max-width: 120px;
+  min-width: 200px;
+  width: 200px;
+  max-width: 200px;
 }
 
 th {
@@ -176,6 +180,7 @@ td.method {
   height: 22px;
   border-top: 1px solid #cacaca;
   background-image: -webkit-linear-gradient(rgb(243,243,243), rgb(235,235,235));
+  overflow: hidden;
 }
 
 #toolbar button {
