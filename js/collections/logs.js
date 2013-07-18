@@ -8,8 +8,12 @@
       this.type = type;
     },
 
+    fetchingLimit: 20,
+    pollingInterval: 200,
+
     sync: function(method, collection, options) {
       var operation;
+      var args = [collection.type];
 
       switch (method) {
         case 'read': operation = 'getData'; break;
@@ -19,9 +23,14 @@
 
       var deferred = new $.Deferred();
 
+      if (method == 'read') {
+        args.push(options.incremental ? collection.size() : 0);
+        args.push(options.limit || this.fetchingLimit);
+      }
+
       BDT.page.eval(
         operation,
-        [collection.type, options.incremental ? collection.size() : 0],
+        args,
         function(resp) {
           if (options.success) options.success(collection, resp, options);
           deferred.resolveWith(resp);
@@ -49,7 +58,7 @@
       var this_ = this;
       this.polling = window.setInterval(function() {
         this_.fetchNew();
-      }, 200);
+      }, this.pollingInterval);
     },
 
     stopPolling: function() {

@@ -48,12 +48,18 @@
       });
     },
 
-    getData: function(type, fromIndex) {
-      if (!fromIndex) return this.data[type];
-      return this.data[type].slice(fromIndex);
+    getData: function(type, fromIndex, limit) {
+      if (!fromIndex) fromIndex = 0;
+      if (!limit) limit = 50;
+      var untilIndex = fromIndex + limit;
+      return this.data[type].slice(fromIndex, untilIndex);
     },
 
     clearData: function(type) {
+      if (!type) {
+        for (var key in this.data) this.clearData(key);
+        return;
+      }
       this.data[type] = [];
     }
 

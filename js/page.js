@@ -70,8 +70,8 @@
       return typeof window.Backbone.debug.logger.getData === 'function';
     },
 
-    getData: function(type, fromIndex) {
-      return Backbone.debug.logger.getData(type, fromIndex);
+    getData: function(type, fromIndex, limit) {
+      return window.Backbone.debug.logger.getData(type, fromIndex, limit);
     },
 
     clearData: function(type) {
