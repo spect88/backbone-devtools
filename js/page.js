@@ -30,7 +30,7 @@
 
       // display elemens as eg. div#todoapp
       function pretty(elem) {
-        return elem.tagName.toLowerCase() + (elem.id && ("#" + elem.id));
+        return elem.tagName.toLowerCase() + (elem.id && ("#" + elem.id)) + (elem.className && ('.' + elem.className.split(/\s+/).join('.')));
       }
 
       // we need to prefix element names if we want to preserve the order
